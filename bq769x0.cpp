@@ -711,14 +711,14 @@ void bq769x0::updateVoltages()
 {
   LOG_PRINTLN("updateVoltages");
   long adcVal = 0;
-  char buf[4];
+  uint_8 buf[4];
   int connectedCells = 0;
   idCellMaxVoltage = 0; //resets to zero before writing values to these vars
   idCellMinVoltage = 0;
 
   uint8_t crc;
   crc = 0;
-  buf[0] = (char) VC1_HI_BYTE; // start with the first cell
+  buf[0] = VC1_HI_BYTE; // start with the first cell
   
   Wire.beginTransmission(I2CAddress);
   Wire.write(buf[0]);     // tell slave that this is the address it is interested in
@@ -800,8 +800,8 @@ void bq769x0::writeRegister(byte address, int data)
   LOG_PRINT(" --> ");
   LOG_PRINT(byte2char(data));
   uint8_t crc = 0;
-  char buf[3];
-  buf[0] = (char) address;
+  uint_8 buf[3];
+  buf[0] = address;
   buf[1] = data;
 
   // note that writes to the bq769x0 IC are: 1) start - 2) address - 3) address - 4) data - 5) CRC8 - 6) stop bit
