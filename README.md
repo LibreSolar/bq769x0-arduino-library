@@ -1,3 +1,5 @@
+**IMPORTANT**: This library is unmaintained. Use it at your own risk.
+
 # bq769x0 Arduino Library
 
 Arduino-compatible library for battery management system based on Texas Instruments bq769x0 IC (bq76920, bq76930, and bq76940).
